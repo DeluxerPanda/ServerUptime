@@ -35,20 +35,20 @@ public class ServerUpTime extends JavaPlugin implements CommandExecutor {
             } else {
 
                 long diff = System.currentTimeMillis() - ServerUpTime.serverStart;
-                String UptimeName = String.valueOf(getConfig().getString("ServerUptime.ServerUptime"));
+                String UptimeName = String.valueOf(getConfig().getString("ServerUptime.ServerUptime").replace("&", "§"));
                 int days = (int) (diff / 86400000);
                 int hours = (int) (diff / 3600000 % 24);
                 int minutes = (int) (diff / 60000 % 60);
                 int seconds = (int) (diff / 1000 % 60);
-                String OwnDay = String.valueOf(getConfig().getString("ServerUptime.Days"));
-                String OwnHours = String.valueOf(getConfig().getString("ServerUptime.Hours"));
-                String OwnMinutes = String.valueOf(getConfig().getString("ServerUptime.Minutes"));
-                String OwnSeconds = String.valueOf(getConfig().getString("ServerUptime.Seconds"));
+                String OwnDay = String.valueOf(getConfig().getString("ServerUptime.Days").replace("&", "§"));
+                String OwnHours = String.valueOf(getConfig().getString("ServerUptime.Hours").replace("&", "§"));
+                String OwnMinutes = String.valueOf(getConfig().getString("ServerUptime.Minutes").replace("&", "§"));
+                String OwnSeconds = String.valueOf(getConfig().getString("ServerUptime.Seconds").replace("&", "§"));
 
-                String ColorDay = String.valueOf(getConfig().getString("ServerUptime.numbers.Days"));
-                String ColorHours = String.valueOf(getConfig().getString("ServerUptime.numbers.Hours"));
-                String ColorMinutes = String.valueOf(getConfig().getString("ServerUptime.numbers.Minutes"));
-                String ColorSeconds = String.valueOf(getConfig().getString("ServerUptime.numbers.Seconds"));
+                String ColorDay = String.valueOf(getConfig().getString("ServerUptime.numbers.Days").replace("&", "§"));
+                String ColorHours = String.valueOf(getConfig().getString("ServerUptime.numbers.Hours").replace("&", "§"));
+                String ColorMinutes = String.valueOf(getConfig().getString("ServerUptime.numbers.Minutes").replace("&", "§"));
+                String ColorSeconds = String.valueOf(getConfig().getString("ServerUptime.numbers.Seconds").replace("&", "§"));
 
                 if (minutes == 0) sender.sendMessage(UptimeName + " " + ColorSeconds + seconds + " " + OwnSeconds);
                 else if (hours == 0)
