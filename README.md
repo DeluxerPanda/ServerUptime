@@ -11,17 +11,18 @@ serveruptime.use
 ## Default configuration:
 ```html
 ServerUptime:
-  ServerUptime: §7[§bServer Uptime§7]
-  Days: §bDay
-  Hours: §bHours
-  Minutes: §bMinutes
-  Seconds: §bSeconds
+  ServerUptime: '&7[&bServer Uptime&7]'
+  Days: '&bDay'
+  Hours: '&bHours'
+  Minutes: '&bMinutes'
+  Seconds: '&bSeconds'
   Permissions: 'true'
-  NoPermissions: §cYou are not authorized to do this!
-  # Minecraft Color Codes: https://www.digminecraft.com/lists/color_list_pc.php
+  NoPermissions: '&cYou are not authorized to do this!'
+#Minecraft Color Codes: https://www.digminecraft.com/lists/color_list_pc.php
   numbers:
-    Days: §7
-    Hours: §7
-    Minutes: §7
-    Seconds: §7
+    Days: '&7'
+    Hours: '&7'
+    Minutes: '&7'
+    Seconds: '&7'
+
 ```
