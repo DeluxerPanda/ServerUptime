@@ -1,7 +1,7 @@
 name: ServerUptime
 version: '${version}'
 main: se.deluxerpanda.serveruptime.ServerUpTime
-api-version: 1.18
+api-version: 1.20
 authors: [ DeluxerPanda ]
 website: https://DeluxerPanda.se
 description: "Check how long the server has been running with /uptime"
