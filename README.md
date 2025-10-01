@@ -18,7 +18,7 @@ ServerUptime:
   Seconds: '&bSeconds'
   Permissions: 'true'
   NoPermissions: '&cYou are not authorized to do this!'
-#Minecraft Color Codes: https://www.digminecraft.com/lists/color_list_pc.php
+#Minecraft Color Codes: https://minecraft.wiki/w/Formatting_codes#Color_codes
   numbers:
     Days: '&7'
     Hours: '&7'
