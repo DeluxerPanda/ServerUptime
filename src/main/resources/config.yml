@@ -4,7 +4,7 @@ ServerUptime:
   Hours: '&bHours'
   Minutes: '&bMinutes'
   Seconds: '&bSeconds'
-  Permissions: 'true'
+  Permissions: true
   NoPermissions: '&cYou are not authorized to do this!'
 #Minecraft Color Codes: https://www.digminecraft.com/lists/color_list_pc.php
   numbers:

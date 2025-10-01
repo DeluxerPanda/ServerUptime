@@ -6,7 +6,10 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
+import java.util.Comparator;
 import java.util.Objects;
 
 /*
@@ -33,22 +36,22 @@ public class ServerUpTime extends JavaPlugin implements CommandExecutor {
         FileConfiguration config = getConfig();
         config.options().copyDefaults(true); // Copy default values to config
         // Add default values for configuration options
-        config.addDefault("ServerUptime.Permissions", "true");
+        config.addDefault("ServerUptime.Permissions", true);
         config.addDefault("ServerUptime.NoPermissions", ChatColor.RED + "You do not have permission to use this command.");
-        config.addDefault("ServerUptime.ServerUptime", "&aServer Uptime:");
-        config.addDefault("ServerUptime.Days", "&aDays");
-        config.addDefault("ServerUptime.Hours", "&aHours");
-        config.addDefault("ServerUptime.Minutes", "&aMinutes");
-        config.addDefault("ServerUptime.Seconds", "&aSeconds");
-        config.addDefault("ServerUptime.numbers.Days", "&e");
-        config.addDefault("ServerUptime.numbers.Hours", "&e");
-        config.addDefault("ServerUptime.numbers.Minutes", "&e");
-        config.addDefault("ServerUptime.numbers.Seconds", "&e");
+        config.addDefault("ServerUptime.ServerUptime", "&7[&bServer Uptime&7]");
+        config.addDefault("ServerUptime.Days", "&bDays");
+        config.addDefault("ServerUptime.Hours", "&bHours");
+        config.addDefault("ServerUptime.Minutes", "&bMinutes");
+        config.addDefault("ServerUptime.Seconds", "&bSeconds");
+        config.addDefault("ServerUptime.numbers.Days", "&7");
+        config.addDefault("ServerUptime.numbers.Hours", "&7");
+        config.addDefault("ServerUptime.numbers.Minutes", "&7");
+        config.addDefault("ServerUptime.numbers.Seconds", "&7");
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (cmd.getName().equalsIgnoreCase("uptime")) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
+
             FileConfiguration config = getConfig(); // Get the configuration
 
             // Check for permissions
@@ -59,20 +62,20 @@ public class ServerUpTime extends JavaPlugin implements CommandExecutor {
 
             // Calculate uptime
             long diff = System.currentTimeMillis() - serverStart;
-            String uptimeName = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getString("ServerUptime.ServerUptime")));
+            String uptimeName = Objects.requireNonNull(config.getString("ServerUptime.ServerUptime")).replace("&","§");
             int days = (int) (diff / 86400000);
             int hours = (int) (diff / 3600000 % 24);
             int minutes = (int) (diff / 60000 % 60);
             int seconds = (int) (diff / 1000 % 60);
-            String ownDay = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getString("ServerUptime.Days")));
-            String ownHours = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getString("ServerUptime.Hours")));
-            String ownMinutes = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getString("ServerUptime.Minutes")));
-            String ownSeconds = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getString("ServerUptime.Seconds")));
+            String ownDay = Objects.requireNonNull(config.getString("ServerUptime.Days")).replace("&","§");
+            String ownHours = Objects.requireNonNull(config.getString("ServerUptime.Hours")).replace("&","§");
+            String ownMinutes = Objects.requireNonNull(config.getString("ServerUptime.Minutes")).replace("&","§");
+            String ownSeconds = Objects.requireNonNull(config.getString("ServerUptime.Seconds")).replace("&","§");
 
-            String colorDay = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getString("ServerUptime.numbers.Days")));
-            String colorHours = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getString("ServerUptime.numbers.Hours")));
-            String colorMinutes = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getString("ServerUptime.numbers.Minutes")));
-            String colorSeconds = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getString("ServerUptime.numbers.Seconds")));
+            String colorDay = Objects.requireNonNull(config.getString("ServerUptime.numbers.Days")).replace("&","§");
+            String colorHours =  Objects.requireNonNull(config.getString("ServerUptime.numbers.Hours")).replace("&","§");
+            String colorMinutes = Objects.requireNonNull(config.getString("ServerUptime.numbers.Minutes")).replace("&","§");
+            String colorSeconds = Objects.requireNonNull(config.getString("ServerUptime.numbers.Seconds")).replace("&","§");
 
             // Construct the uptime message based on the time calculated
             if (days > 0) {
@@ -89,7 +92,5 @@ public class ServerUpTime extends JavaPlugin implements CommandExecutor {
                         uptimeName, colorSeconds, seconds, ownSeconds));
             }
             return true;
-        }
-        return false;
     }
 }
