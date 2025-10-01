@@ -16,7 +16,7 @@ ServerUptime:
   Hours: '&bHours'
   Minutes: '&bMinutes'
   Seconds: '&bSeconds'
-  Permissions: 'true'
+  Permissions: true
   NoPermissions: '&cYou are not authorized to do this!'
 #Minecraft Color Codes: https://minecraft.wiki/w/Formatting_codes#Color_codes
   numbers:
