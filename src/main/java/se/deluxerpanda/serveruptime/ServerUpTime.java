@@ -9,7 +9,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
-import java.util.Comparator;
 import java.util.Objects;
 
 /*
