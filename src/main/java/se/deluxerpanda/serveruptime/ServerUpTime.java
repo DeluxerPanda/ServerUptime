@@ -6,9 +6,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
-import java.awt.*;
 import java.util.Objects;
 
 public class ServerUpTime extends JavaPlugin implements CommandExecutor {
@@ -41,7 +40,7 @@ public class ServerUpTime extends JavaPlugin implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
+    public boolean onCommand(@NonNull CommandSender sender, @NonNull Command cmd, @NonNull String label, String @NonNull [] args) {
 
             if (config.getBoolean("ServerUptime.Permissions") && !sender.hasPermission("serveruptime.use")) {
                 sender.sendMessage(Objects.requireNonNull(config.getString("ServerUptime.NoPermissions")));
